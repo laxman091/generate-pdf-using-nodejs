@@ -1,22 +1,26 @@
 extends layout
 
 block content
-  h1= title
-  p Click on generate PDF link to Generate PDF using NodeJS and Express
-  table.table.table-hover.table-striped.table-bordered
-    thead
-      tr
-        th #
-        th Title
-        th Author
-        th Action
-    tbody
-    - for (var i = 0; i < news.length; ++i) {
-       tr
-         th(scope='row') #{i+1}
-         td #{news[i]['title']}
-         td #{news[i]['author_name']}
-         td
-          a(href="/pdf?id="+news[i]['id'])
-           | Generate PDF
-    - }
+	.row
+	.col-lg-12
+		h1 Employees Records
+		table.table.table-hover.table-striped.table-bordered
+			thead
+				tr
+					th #
+					th FirstName
+					th LastName
+					th extension
+					th email
+					th Action
+			tbody
+				-for(var i = 0; i < employees.length; ++i) {
+				tr
+					th(scope='row') #{i+1}
+					td #{employees[i]['firstName']}
+					td #{employees[i]['lastName']}
+					td #{employees[i]['extension']}
+					td #{employees[i]['email']}
+					td
+						a(href="/pdf?id="+employees[i]['id'])|	Generate PDF
+				- }
